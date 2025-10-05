@@ -2,7 +2,6 @@ package com.translation.api.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -10,7 +9,14 @@ import java.net.URLEncoder;
 
 public class TranslationService {
 
-    // Tradução usando Google Translate API gratuita via HTTP
+    /**
+     * Traduz texto real usando Google Translate (HTTP GET)
+     *
+     * @param text Texto a traduzir
+     * @param from Código do idioma de origem (pt, en, ru, ar)
+     * @param to Código do idioma destino
+     * @return Texto traduzido
+     */
     public String translate(String text, String from, String to) {
         try {
             String encodedText = URLEncoder.encode(text, "UTF-8");
@@ -42,4 +48,4 @@ public class TranslationService {
             return "Erro na tradução: " + e.getMessage();
         }
     }
-        }
+}
